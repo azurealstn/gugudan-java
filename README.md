@@ -19,3 +19,26 @@
 
 - 사용자의 입력값을 받고 8, 9단을 출력하되 조건을 단다.
 - 조건은 입력한 값이 `2`보다 작거나 `10`보다 큰 경우, 처리를 해준다. (처리는 알아서 할 것)
+
+## 배열과 이중 for문
+
+- 배열에는 구구단의 단을 넣어주고, 이중 for문을 이용하여 구구단을 구현
+
+```java
+public class Gugudan {
+	public static void main(String[] args) {
+		int[] result = new int[8];
+		for (int i = 0; i < result.length; i++) {
+			result[i] = i + 2;
+		}
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 1; j <= result.length + 1; j++) {
+				int gugu = result[i] * j;
+				System.out.println(gugu);
+			}
+			System.out.println("--------");
+		}
+	}
+}
+
+```
