@@ -1,6 +1,9 @@
-
 public class Gugudan {
-	public static void main(String[] args) {
-		System.out.println("Hello Gugudan~!");
+	public static int[] calc(int dan) {
+		int[] result = new int[9];
+ 		for (int i = 0; i < result.length; i++) {
+ 			result[i] = dan * (i + 1);
+ 		}
+		return result;
 	}
 }
