@@ -23,6 +23,7 @@
 ## 배열과 이중 for문
 
 - 배열에는 구구단의 단을 넣어주고, 이중 for문을 이용하여 구구단을 구현
+- 이중 for문을 사용하였기에 시간복잡도는 `O(n^2)`이 되겠다.
 
 ```java
 public class Gugudan {
@@ -40,5 +41,50 @@ public class Gugudan {
 		}
 	}
 }
+```
 
+## 메소드를 이용한 구구단
+
+```java
+public class Gugudan {
+	public static int[] calc(int dan) { //정적 메소드 선언
+		int[] result = new int[9];
+ 		for (int i = 0; i < result.length; i++) {
+ 			result[i] = dan * (i + 1);
+ 		}
+		return result; //배열 리턴
+	}
+	
+	
+	public static void main(String[] args) {
+		for (int i = 0; i < 8; i++) {
+			int[] result = calc(i + 2);
+			for (int j = 0; j < result.length; j++) {
+				System.out.println(result[j]);
+			}
+			System.out.println("---------");
+		}
+	}
+}
+```
+
+## 클래스를 이용한 구구단
+
+- 전에 메소드 calc()를 한 클래스에 생성했는데 이것을 다른 클래스에 두어 `API`처럼 사용할 수 있다.
+- 이 때 원래는 `new` 연산자를 이용하여 생성자를 생성해야 하지만, 우리는 `static`이라는 정적 메소드를 선언하였다.
+- static에 대해서는 나중에 더 자세히 다룰 예정이지만 지금은 각각의 클래스에 객체를 생성할 필요없이 한번 선언하면 `공유한다`로 이해하면 되겠다.
+- 사용법은 메소드 앞에 `클래스명.`만 붙여주면 된다.
+
+```java
+public class GugudanMain {
+	public static void main(String[] args) {
+		for (int i = 0; i < 8; i++) {
+			int[] result = Gugudan.calc(i + 2);
+			for (int j = 0; j < result.length; j++) {
+				System.out.println(result[j]);
+			}
+			System.out.println("---------");
+		}
+	}
+}
 ```
